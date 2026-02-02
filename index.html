@@ -2,78 +2,99 @@
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
-<title>ԱԲ ԳՈՐԾԻՔՆԵՐԻ ՀԱՐԹԱԿ</title>
+<title>AI Tools Hub</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background: #f4f6f8;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
 }
 
 header {
-    background: #1f2933;
-    color: white;
-    padding: 20px;
     text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 16px;
+    opacity: 0.9;
 }
 
 section {
-    padding: 20px;
+    padding: 30px;
 }
 
 .category {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .category h2 {
-    color: #1f2933;
+    margin-bottom: 15px;
     border-left: 5px solid #3b82f6;
     padding-left: 10px;
+    font-size: 22px;
 }
 
-.tools {
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-.tool {
-    background: white;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.card {
+    background: #1e293b;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
 }
 
-.tool h3 {
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card h3 {
     margin-top: 0;
+    font-size: 18px;
 }
 
-.tool p {
+.card p {
     font-size: 14px;
-    color: #555;
+    opacity: 0.8;
 }
 
-.tool button {
+.card button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
     background: #3b82f6;
     color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
 }
 
-.tool button:hover {
+.card button:hover {
     background: #2563eb;
 }
 
 footer {
     text-align: center;
-    padding: 15px;
-    background: #e5e7eb;
+    padding: 20px;
     font-size: 14px;
+    background: #020617;
+    opacity: 0.8;
 }
 </style>
 </head>
@@ -81,58 +102,64 @@ footer {
 <body>
 
 <header>
-    <h1>Արհեստական Բանականության Գործիքներ</h1>
-    <p>Մեկ վայրում հավաքված օգտակար ԱԲ հարթակներ</p>
+    <h1>🤖 AI Tools Hub</h1>
+    <p>Արհեստական Բանականության գործիքներ՝ մեկ հարթակում</p>
 </header>
 
 <section>
 
     <!-- ՈւՍՈՒՄ -->
     <div class="category">
-        <h2>📚 Ուսում և ուսուցում</h2>
-        <div class="tools">
-            <div class="tool">
+        <h2>📚 Ուսում</h2>
+        <div class="grid">
+
+            <div class="card">
                 <h3>ChatGPT</h3>
-                <p>Օգնում է հարցերի պատասխանման և բացատրությունների մեջ</p>
+                <p>Հարցեր, բացատրություններ, ուսում</p>
                 <button onclick="openTool('https://chat.openai.com')">Բացել</button>
             </div>
 
-            <div class="tool">
-                <h3>Khan Academy AI</h3>
-                <p>Ուսումնական բացատրություններ և վարժություններ</p>
+            <div class="card">
+                <h3>Khan Academy</h3>
+                <p>Դասեր և վարժություններ</p>
                 <button onclick="openTool('https://www.khanacademy.org')">Բացել</button>
             </div>
+
         </div>
     </div>
 
     <!-- ՆԿԱՐՆԵՐ -->
     <div class="category">
-        <h2>🎨 Նկարների ստեղծում</h2>
-        <div class="tools">
-            <div class="tool">
+        <h2>🎨 Նկարներ</h2>
+        <div class="grid">
+
+            <div class="card">
                 <h3>DALL·E</h3>
-                <p>Տեքստից նկարների ստեղծում</p>
+                <p>Նկարների ստեղծում տեքստից</p>
                 <button onclick="openTool('https://www.bing.com/images/create')">Բացել</button>
             </div>
+
         </div>
     </div>
 
     <!-- ԾՐԱԳՐԱՎՈՐՈՒՄ -->
     <div class="category">
         <h2>💻 Ծրագրավորում</h2>
-        <div class="tools">
-            <div class="tool">
+        <div class="grid">
+
+            <div class="card">
                 <h3>GitHub Copilot</h3>
-                <p>Օգնում է կոդ գրել և հասկանալ</p>
+                <p>Խելացի կոդի օգնական</p>
                 <button onclick="openTool('https://github.com/features/copilot')">Բացել</button>
             </div>
+
         </div>
     </div>
 
 </section>
 
 <footer>
-    Նախագիծ՝ «ԱԲ գործիքների հարթակ» | Դպրոցական աշխատանք
+    Դպրոցական նախագիծ • AI Tools Hub
 </footer>
 
 <script>
