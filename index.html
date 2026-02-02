@@ -9,14 +9,15 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: #e5e7eb;
+    background: #f5f5f5; /* բաց գույն */
+    color: #1f2937; /* մուգ տեքստ */
 }
 
 header {
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
 }
 
 header h1 {
@@ -31,58 +32,59 @@ header p {
 }
 
 section {
-    padding: 30px;
+    padding: 20px;
 }
 
 .category {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .category h2 {
-    margin-bottom: 15px;
-    border-left: 5px solid #3b82f6;
+    margin-bottom: 10px;
+    border-left: 4px solid #3b82f6;
     padding-left: 10px;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* փոքր քառակուսիներ */
+    gap: 15px;
 }
 
 .card {
-    background: #1e293b;
-    border-radius: 14px;
-    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
     text-align: center;
     transition: 0.3s;
+    border: 1px solid #e5e7eb;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 .card h3 {
     margin-top: 0;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .card p {
-    font-size: 14px;
+    font-size: 12px;
     opacity: 0.8;
 }
 
 .card button {
-    margin-top: 15px;
-    padding: 10px 15px;
+    margin-top: 10px;
+    padding: 7px 12px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #3b82f6;
     color: white;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .card button:hover {
@@ -91,10 +93,10 @@ section {
 
 footer {
     text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    background: #020617;
-    opacity: 0.8;
+    padding: 15px;
+    font-size: 13px;
+    background: #e5e7eb;
+    color: #374151;
 }
 </style>
 </head>
@@ -195,28 +197,6 @@ footer {
     </div>
 </div>
 
-<!-- 💡 Հաճախ օգտագործվող պրոմտներ -->
-<div class="category">
-    <h2>💡 Հաճախ օգտագործվող պրոմտներ</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Դասի բացատրություն</h3>
-            <p>Պարզ և սեղմ բացատրություն թեմայի համար</p>
-            <button onclick="copyPrompt('Խնդրում եմ բացատրիր այս թեման պարզ և քայլ առ քայլ')">Պատճենել</button>
-        </div>
-        <div class="card">
-            <h3>Իմ գրավոր աշխատանքը ուղղել</h3>
-            <p>Ստուգում և առաջարկում է բարելավումներ գրության համար</p>
-            <button onclick="copyPrompt('Խնդրում եմ ստուգիր և բարելավիր իմ տեքստը')">Պատճենել</button>
-        </div>
-        <div class="card">
-            <h3>Նկար ստեղծել</h3>
-            <p>Թեքստից նկար գեներացնել</p>
-            <button onclick="copyPrompt('Ստեղծիր պատկեր նկարագրության համաձայն')">Պատճենել</button>
-        </div>
-    </div>
-</div>
-
 </section>
 
 <footer>
@@ -226,12 +206,6 @@ footer {
 <script>
 function openTool(url) {
     window.open(url, "_blank");
-}
-
-function copyPrompt(text) {
-    navigator.clipboard.writeText(text)
-    .then(() => { alert('Պրոմտը պատճենվել է Clipboard-ում!'); })
-    .catch(err => { alert('Փորձեք կրկին: ', err); });
 }
 </script>
 
