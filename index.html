@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<title>ԱԲ ԳՈՐԾԻՔՆԵՐԻ ՀԱՐԹԱԿ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f8;
+}
+
+header {
+    background: #1f2933;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+section {
+    padding: 20px;
+}
+
+.category {
+    margin-bottom: 30px;
+}
+
+.category h2 {
+    color: #1f2933;
+    border-left: 5px solid #3b82f6;
+    padding-left: 10px;
+}
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.tool {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tool h3 {
+    margin-top: 0;
+}
+
+.tool p {
+    font-size: 14px;
+    color: #555;
+}
+
+.tool button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tool button:hover {
+    background: #2563eb;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #e5e7eb;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Արհեստական Բանականության Գործիքներ</h1>
+    <p>Մեկ վայրում հավաքված օգտակար ԱԲ հարթակներ</p>
+</header>
+
+<section>
+
+    <!-- ՈւՍՈՒՄ -->
+    <div class="category">
+        <h2>📚 Ուսում և ուսուցում</h2>
+        <div class="tools">
+            <div class="tool">
+                <h3>ChatGPT</h3>
+                <p>Օգնում է հարցերի պատասխանման և բացատրությունների մեջ</p>
+                <button onclick="openTool('https://chat.openai.com')">Բացել</button>
+            </div>
+
+            <div class="tool">
+                <h3>Khan Academy AI</h3>
+                <p>Ուսումնական բացատրություններ և վարժություններ</p>
+                <button onclick="openTool('https://www.khanacademy.org')">Բացել</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ՆԿԱՐՆԵՐ -->
+    <div class="category">
+        <h2>🎨 Նկարների ստեղծում</h2>
+        <div class="tools">
+            <div class="tool">
+                <h3>DALL·E</h3>
+                <p>Տեքստից նկարների ստեղծում</p>
+                <button onclick="openTool('https://www.bing.com/images/create')">Բացել</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ԾՐԱԳՐԱՎՈՐՈՒՄ -->
+    <div class="category">
+        <h2>💻 Ծրագրավորում</h2>
+        <div class="tools">
+            <div class="tool">
+                <h3>GitHub Copilot</h3>
+                <p>Օգնում է կոդ գրել և հասկանալ</p>
+                <button onclick="openTool('https://github.com/features/copilot')">Բացել</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    Նախագիծ՝ «ԱԲ գործիքների հարթակ» | Դպրոցական աշխատանք
+</footer>
+
+<script>
+function openTool(url) {
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
