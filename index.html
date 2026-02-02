@@ -108,53 +108,114 @@ footer {
 
 <section>
 
-    <!-- ՈւՍՈՒՄ -->
-    <div class="category">
-        <h2>📚 Ուսում</h2>
-        <div class="grid">
-
-            <div class="card">
-                <h3>ChatGPT</h3>
-                <p>Հարցեր, բացատրություններ, ուսում</p>
-                <button onclick="openTool('https://chat.openai.com')">Բացել</button>
-            </div>
-
-            <div class="card">
-                <h3>Khan Academy</h3>
-                <p>Դասեր և վարժություններ</p>
-                <button onclick="openTool('https://www.khanacademy.org')">Բացել</button>
-            </div>
-
+<!-- 💬 ԱԲ ՉԱԹ և օգնականներ -->
+<div class="category">
+    <h2>💬 ԱԲ ՉԱԹ և օգնականներ</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>ChatGPT</h3>
+            <p>Հարցեր, բացատրություններ, ուսում</p>
+            <button onclick="openTool('https://chat.openai.com')">Բացել</button>
+        </div>
+        <div class="card">
+            <h3>Poe</h3>
+            <p>Բազմա-չաթ ԱԲ աջակցություն</p>
+            <button onclick="openTool('https://poe.com')">Բացել</button>
+        </div>
+        <div class="card">
+            <h3>Google Gemini</h3>
+            <p>Google-ի մեծածավալ ԱԲ մոդել</p>
+            <button onclick="openTool('https://gemini.google.com')">Բացել</button>
         </div>
     </div>
+</div>
 
-    <!-- ՆԿԱՐՆԵՐ -->
-    <div class="category">
-        <h2>🎨 Նկարներ</h2>
-        <div class="grid">
-
-            <div class="card">
-                <h3>DALL·E</h3>
-                <p>Նկարների ստեղծում տեքստից</p>
-                <button onclick="openTool('https://www.bing.com/images/create')">Բացել</button>
-            </div>
-
+<!-- 📚 Ուսում -->
+<div class="category">
+    <h2>📚 Ուսում</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Khan Academy</h3>
+            <p>Դասեր և վարժություններ</p>
+            <button onclick="openTool('https://www.khanacademy.org')">Բացել</button>
         </div>
     </div>
+</div>
 
-    <!-- ԾՐԱԳՐԱՎՈՐՈՒՄ -->
-    <div class="category">
-        <h2>💻 Ծրագրավորում</h2>
-        <div class="grid">
-
-            <div class="card">
-                <h3>GitHub Copilot</h3>
-                <p>Խելացի կոդի օգնական</p>
-                <button onclick="openTool('https://github.com/features/copilot')">Բացել</button>
-            </div>
-
+<!-- 🎨 Նկարներ -->
+<div class="category">
+    <h2>🎨 Նկարներ</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>DALL·E</h3>
+            <p>Նկարների ստեղծում տեքստից</p>
+            <button onclick="openTool('https://www.bing.com/images/create')">Բացել</button>
         </div>
     </div>
+</div>
+
+<!-- 💻 Ծրագրավորում -->
+<div class="category">
+    <h2>💻 Ծրագրավորում</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>GitHub Copilot</h3>
+            <p>Խելացի կոդի օգնական</p>
+            <button onclick="openTool('https://github.com/features/copilot')">Բացել</button>
+        </div>
+        <div class="card">
+            <h3>Google AI Studio</h3>
+            <p>Gemini մոդելներով ԱԲ փորձարկում և ստեղծում</p>
+            <button onclick="openTool('https://aistudio.google.com')">Բացել</button>
+        </div>
+    </div>
+</div>
+
+<!-- 📈 AI Թրենդներ -->
+<div class="category">
+    <h2>📈 AI Թրենդներ</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Trendsee</h3>
+            <p>AI թրենդների վերլուծություն</p>
+            <button onclick="openTool('https://trendsee.io')">Բացել</button>
+        </div>
+    </div>
+</div>
+
+<!-- 🧠 Բազմաֆունկցիոնալ AI -->
+<div class="category">
+    <h2>🧠 Բազմաֆունկցիոնալ AI</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Syntx AI</h3>
+            <p>AI պլատֆորմ՝ տեքստի, նկարների, վիդեո և ձայնի ստեղծման համար</p>
+            <button onclick="openTool('https://syntx.ai')">Բացել</button>
+        </div>
+    </div>
+</div>
+
+<!-- 💡 Հաճախ օգտագործվող պրոմտներ -->
+<div class="category">
+    <h2>💡 Հաճախ օգտագործվող պրոմտներ</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Դասի բացատրություն</h3>
+            <p>Պարզ և սեղմ բացատրություն թեմայի համար</p>
+            <button onclick="copyPrompt('Խնդրում եմ բացատրիր այս թեման պարզ և քայլ առ քայլ')">Պատճենել</button>
+        </div>
+        <div class="card">
+            <h3>Իմ գրավոր աշխատանքը ուղղել</h3>
+            <p>Ստուգում և առաջարկում է բարելավումներ գրության համար</p>
+            <button onclick="copyPrompt('Խնդրում եմ ստուգիր և բարելավիր իմ տեքստը')">Պատճենել</button>
+        </div>
+        <div class="card">
+            <h3>Նկար ստեղծել</h3>
+            <p>Թեքստից նկար գեներացնել</p>
+            <button onclick="copyPrompt('Ստեղծիր պատկեր նկարագրության համաձայն')">Պատճենել</button>
+        </div>
+    </div>
+</div>
 
 </section>
 
@@ -165,6 +226,12 @@ footer {
 <script>
 function openTool(url) {
     window.open(url, "_blank");
+}
+
+function copyPrompt(text) {
+    navigator.clipboard.writeText(text)
+    .then(() => { alert('Պրոմտը պատճենվել է Clipboard-ում!'); })
+    .catch(err => { alert('Փորձեք կրկին: ', err); });
 }
 </script>
 
