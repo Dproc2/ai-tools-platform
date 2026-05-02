@@ -2,300 +2,611 @@
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
-<title>AI Tools Hub</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tools Hub Ultimate</title>
 
-<!-- Favicon -->
-<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616408.png" type="image/png">
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* Body & Header */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9fafb;
-    color: #1f2937;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-header {
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #4f46e5, #6366f1);
-    color: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+body{
+    font-family:'Montserrat',sans-serif;
+    background:
+    radial-gradient(circle at top left,#4f46e515 0%,transparent 25%),
+    radial-gradient(circle at bottom right,#7c3aed15 0%,transparent 25%),
+    linear-gradient(135deg,#1e293b,#334155,#475569);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 36px;
-    letter-spacing: 1px;
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar{
+    width:10px;
 }
 
-header p {
-    margin-top: 8px;
-    font-size: 16px;
-    opacity: 0.9;
+::-webkit-scrollbar-track{
+    background:#334155;
 }
 
-/* Search box */
-#searchBox {
-    display: block;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 400px;
-    padding: 12px 15px;
-    font-size: 14px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    transition: all 0.3s;
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,#6366f1,#8b5cf6);
+    border-radius:20px;
 }
 
-#searchBox:focus {
-    outline: none;
-    border-color: #4f46e5;
-    box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+/* ===== Header ===== */
+
+header{
+    position:relative;
+    text-align:center;
+    padding:70px 20px;
+    overflow:hidden;
+    border-bottom:2px solid rgba(255,255,255,0.1);
 }
 
-/* Section & Categories */
-section {
-    padding: 20px;
+header::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(99,102,241,0.15);
+    border-radius:50%;
+    top:-250px;
+    left:-150px;
+    filter:blur(60px);
 }
 
-.category {
-    margin-bottom: 35px;
+header::after{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(168,85,247,0.12);
+    border-radius:50%;
+    right:-150px;
+    top:-250px;
+    filter:blur(60px);
 }
 
-.category h2 {
-    margin-bottom: 15px;
-    border-left: 4px solid #4f46e5;
-    padding-left: 12px;
-    font-size: 22px;
-    color: #374151;
+.header-box{
+    position:relative;
+    z-index:2;
+    max-width:1000px;
+    margin:auto;
+    padding:40px;
+    border-radius:35px;
+    background:rgba(255,255,255,0.07);
+    backdrop-filter:blur(15px);
+    border:2px solid rgba(255,255,255,0.15);
+    box-shadow:
+    0 0 25px rgba(99,102,241,0.2),
+    0 0 60px rgba(139,92,246,0.08);
 }
 
-/* Grid Cards */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 18px;
+header h1{
+    font-size:58px;
+    font-weight:800;
+    margin-bottom:15px;
+    background:linear-gradient(to right,#ffffff,#c7d2fe,#ddd6fe);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    letter-spacing:2px;
 }
 
-.card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 18px 12px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #e5e7eb;
+header p{
+    font-size:18px;
+    opacity:0.95;
+    line-height:1.7;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+/* ===== Search ===== */
+
+.search-container{
+    display:flex;
+    justify-content:center;
+    margin:40px 20px;
 }
 
-.card h3 {
-    margin-top: 0;
-    font-size: 17px;
-    font-weight: 600;
-    color: #111827;
+#searchBox{
+    width:90%;
+    max-width:650px;
+    padding:18px 24px;
+    border:none;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:16px;
+    outline:none;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.15);
+    transition:0.4s;
 }
 
-.card p {
-    font-size: 13px;
-    opacity: 0.8;
-    margin: 6px 0 0 0;
+#searchBox::placeholder{
+    color:#e2e8f0;
 }
 
-.card button {
-    margin-top: 12px;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 8px;
-    background: #4f46e5;
-    color: white;
-    cursor: pointer;
-    font-size: 13px;
-    transition: background 0.3s;
+#searchBox:focus{
+    transform:scale(1.02);
+    box-shadow:
+    0 0 20px rgba(99,102,241,0.3),
+    0 0 40px rgba(168,85,247,0.15);
 }
 
-.card button:hover {
-    background: #4338ca;
+/* ===== Main ===== */
+
+section{
+    width:95%;
+    max-width:1550px;
+    margin:auto;
+    padding-bottom:50px;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 18px;
-    font-size: 13px;
-    background: #e5e7eb;
-    color: #374151;
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0.05);
+.category{
+    margin-bottom:60px;
+    padding:35px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(0,0,0,0.15);
 }
+
+.category h2{
+    display:inline-block;
+    font-size:30px;
+    margin-bottom:30px;
+    padding:16px 28px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    border:2px solid rgba(255,255,255,0.2);
+    box-shadow:
+    0 0 20px rgba(99,102,241,0.3),
+    inset 0 0 15px rgba(255,255,255,0.12);
+}
+
+/* ===== Grid ===== */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+/* ===== Cards ===== */
+
+.card{
+    position:relative;
+    overflow:hidden;
+    background:rgba(255,255,255,0.07);
+    border-radius:28px;
+    padding:28px 22px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.4s;
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:rgba(99,102,241,0.18);
+    border-radius:50%;
+    top:-50px;
+    right:-40px;
+    filter:blur(20px);
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:
+    0 15px 35px rgba(99,102,241,0.25),
+    0 0 30px rgba(168,85,247,0.12);
+}
+
+.icon{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#e2e8f0;
+    font-size:14px;
+    line-height:1.7;
+    min-height:70px;
+}
+
+.card button{
+    margin-top:18px;
+    border:none;
+    padding:12px 20px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    width:100%;
+    font-size:14px;
+}
+
+.card button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px rgba(139,92,246,0.3);
+}
+
+/* ===== Footer ===== */
+
+footer{
+    text-align:center;
+    padding:35px 20px;
+    margin-top:40px;
+    background:rgba(255,255,255,0.05);
+    border-top:1px solid rgba(255,255,255,0.1);
+    font-size:15px;
+    color:#f1f5f9;
+}
+
+/* ===== Responsive ===== */
+
+@media(max-width:768px){
+
+header h1{
+    font-size:38px;
+}
+
+.category h2{
+    font-size:22px;
+}
+
+.card h3{
+    font-size:19px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1> AI Tools Hub</h1>
-    <p>Արհեստական Բանականության գործիքներ՝ մեկ հարթակում</p>
+
+<div class="header-box">
+<h1>🤖 AI TOOLS HUB</h1>
+
+<p>
+Արհեստական բանականության ամենահզոր գործիքները մեկ հարթակում։
+Ուսում, ծրագրավորում, նկարներ, վիդեո, երաժշտություն,
+պրեզենտացիաներ և ապագայի տեխնոլոգիաներ։
+</p>
+
+</div>
+
 </header>
 
-<input type="text" id="searchBox" placeholder="Փնտրել գործիք կամ բաժին..." onkeyup="filterTools()">
+<div class="search-container">
 
-<section id="toolsSection">
+<input
+type="text"
+id="searchBox"
+placeholder="🔍 Փնտրիր AI գործիք կամ բաժին..."
+onkeyup="filterTools()">
 
-<!-- 💬 ԱԲ ՉԱԹ և օգնականներ -->
-<div class="category">
-    <h2>💬 ԱԲ ՉԱԹ և օգնականներ</h2>
-    <div class="grid">
-        <div class="card" data-name="ChatGPT">
-            <h3>ChatGPT</h3>
-            <p>Հարցեր, բացատրություններ, ուսում</p>
-            <button onclick="openTool('https://chat.openai.com')">Բացել</button>
-        </div>
-        <div class="card" data-name="Poe">
-            <h3>Poe</h3>
-            <p>Բազմա-չաթ ԱԲ աջակցություն</p>
-            <button onclick="openTool('https://poe.com')">Բացել</button>
-        </div>
-        <div class="card" data-name="Google Gemini">
-            <h3>Google Gemini</h3>
-            <p>Google-ի մեծածավալ ԱԲ մոդել</p>
-            <button onclick="openTool('https://gemini.google.com')">Բացել</button>
-        </div>
-        <div class="card" data-name="Explore GPT-5.2">
-            <h3>Explore GPT-5.2</h3>
-            <p>Նորագույն GPT-5.2 մոդել</p>
-            <button onclick="openTool('https://example.com/explore-gpt-5.2')">Բացել</button>
-        </div>
-        <div class="card" data-name="Claude Sonnet 4.5">
-            <h3>Claude Sonnet 4.5</h3>
-            <p>Մոդել արհեստական բանականությամբ</p>
-            <button onclick="openTool('https://example.com/claude-sonnet-4.5')">Բացել</button>
-        </div>
-        <div class="card" data-name="Gemmini-3 Pro">
-            <h3>Gemmini-3 Pro</h3>
-            <p>Մոդել խելացի վերլուծությամբ</p>
-            <button onclick="openTool('https://example.com/gemmini-3-pro')">Բացել</button>
-        </div>
-        <div class="card" data-name="Deepseek R1">
-            <h3>Deepseek R1</h3>
-            <p>Տվյալների որոնման AI</p>
-            <button onclick="openTool('https://example.com/deepseek-r1')">Բացել</button>
-        </div>
-        <div class="card" data-name="Veo 3.1">
-            <h3>Veo 3.1</h3>
-            <p>Բազմաֆունկցիոնալ AI</p>
-            <button onclick="openTool('https://example.com/veo-3.1')">Բացել</button>
-        </div>
-        <div class="card" data-name="Script Bot Creator">
-            <h3>Script Bot Creator</h3>
-            <p>Կոդի և automation ստեղծող</p>
-            <button onclick="openTool('https://example.com/script-bot-creator')">Բացել</button>
-        </div>
-        <div class="card" data-name="App Creator">
-            <h3>App Creator</h3>
-            <p>Ծրագրեր ստեղծելու հարթակ</p>
-            <button onclick="openTool('https://example.com/app-creator')">Բացել</button>
-        </div>
-        <div class="card" data-name="Sora 2">
-            <h3>Sora 2</h3>
-            <p>Խելացի օգնական տարբեր ֆունկցիաներով</p>
-            <button onclick="openTool('https://example.com/sora-2')">Բացել</button>
-        </div>
-        <div class="card" data-name="Kling">
-            <h3>Kling</h3>
-            <p>AI գործիք ստեղծման և վերլուծության համար</p>
-            <button onclick="openTool('https://example.com/kling')">Բացել</button>
-        </div>
-    </div>
 </div>
 
-<!-- 📚 Ուսում -->
+<section>
+
+<!-- ===== AI CHAT ===== -->
+
 <div class="category">
-    <h2>📚 Ուսում</h2>
-    <div class="grid">
-        <div class="card" data-name="Khan Academy">
-            <h3>Khan Academy</h3>
-            <p>Դասեր և վարժություններ</p>
-            <button onclick="openTool('https://www.khanacademy.org')">Բացել</button>
-        </div>
-    </div>
+
+<h2>💬 AI Չաթ և Օգնականներ</h2>
+
+<div class="grid">
+
+<div class="card" data-name="ChatGPT">
+<div class="icon">🧠</div>
+<h3>ChatGPT</h3>
+<p>Խելացի պատասխաններ, ուսում և ծրագրավորում։</p>
+<button onclick="openTool('https://chat.openai.com')">Բացել</button>
 </div>
 
-<!-- 🎨 Նկարներ -->
-<div class="category">
-    <h2>🎨 Նկարներ</h2>
-    <div class="grid">
-        <div class="card" data-name="DALL·E">
-            <h3>DALL·E</h3>
-            <p>Նկարների ստեղծում տեքստից</p>
-            <button onclick="openTool('https://www.bing.com/images/create')">Բացել</button>
-        </div>
-    </div>
+<div class="card" data-name="Gemini">
+<div class="icon">✨</div>
+<h3>Google Gemini</h3>
+<p>Google-ի AI օգնականը որոնման և ստեղծման համար։</p>
+<button onclick="openTool('https://gemini.google.com')">Բացել</button>
 </div>
 
-<!-- 💻 Ծրագրավորում -->
-<div class="category">
-    <h2>💻 Ծրագրավորում</h2>
-    <div class="grid">
-        <div class="card" data-name="GitHub Copilot">
-            <h3>GitHub Copilot</h3>
-            <p>Խելացի կոդի օգնական</p>
-            <button onclick="openTool('https://github.com/features/copilot')">Բացել</button>
-        </div>
-        <div class="card" data-name="Google AI Studio">
-            <h3>Google AI Studio</h3>
-            <p>Gemini մոդելներով ԱԲ փորձարկում և ստեղծում</p>
-            <button onclick="openTool('https://aistudio.google.com')">Բացել</button>
-        </div>
-        <div class="card" data-name="Syntx AI">
-            <h3>Syntx AI</h3>
-            <p>AI պլատֆորմ՝ տեքստի, նկարների, վիդեո և ձայնի ստեղծման համար</p>
-            <button onclick="openTool('https://syntx.ai')">Բացել</button>
-        </div>
-    </div>
+<div class="card" data-name="Claude">
+<div class="icon">📘</div>
+<h3>Claude</h3>
+<p>Երկար տեքստերի խելացի վերլուծություն։</p>
+<button onclick="openTool('https://claude.ai')">Բացել</button>
 </div>
 
-<!-- 📈 AI Թրենդներ -->
+<div class="card" data-name="Perplexity">
+<div class="icon">🔎</div>
+<h3>Perplexity AI</h3>
+<p>AI որոնողական համակարգ արագ պատասխաններով։</p>
+<button onclick="openTool('https://www.perplexity.ai')">Բացել</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===== PRESENTATIONS ===== -->
+
 <div class="category">
-    <h2>📈 AI Թրենդներ</h2>
-    <div class="grid">
-        <div class="card" data-name="Trendsee">
-            <h3>Trendsee</h3>
-            <p>AI թրենդների վերլուծություն</p>
-            <button onclick="openTool('https://trendsee.io')">Բացել</button>
-        </div>
-    </div>
+
+<h2>📊 AI Պրեզենտացիաներ</h2>
+
+<div class="grid">
+
+<div class="card" data-name="Gamma AI">
+<div class="icon">📚</div>
+<h3>Gamma AI</h3>
+<p>Պրոֆեսիոնալ պրեզենտացիաների ավտոմատ ստեղծում։</p>
+<button onclick="openTool('https://gamma.app')">Բացել</button>
+</div>
+
+<div class="card" data-name="Tome AI">
+<div class="icon">🖥️</div>
+<h3>Tome AI</h3>
+<p>AI սլայդներ և ներկայացումներ մի քանի վայրկյանում։</p>
+<button onclick="openTool('https://tome.app')">Բացել</button>
+</div>
+
+<div class="card" data-name="Canva">
+<div class="icon">🎨</div>
+<h3>Canva AI</h3>
+<p>Գեղեցիկ դիզայն և պրեզենտացիաների ստեղծում։</p>
+<button onclick="openTool('https://www.canva.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="Beautiful AI">
+<div class="icon">✨</div>
+<h3>Beautiful AI</h3>
+<p>Խելացի և ավտոմատ ձևավորվող սլայդներ։</p>
+<button onclick="openTool('https://www.beautiful.ai')">Բացել</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="category">
+
+<h2>❓ Տեքստից Հարցեր Կազմող AI</h2>
+
+<div class="grid">
+
+<div class="card" data-name="Quizgecko">
+<div class="icon">📝</div>
+<h3>Quizgecko</h3>
+<p>Տեքստից թեստեր և հարցաշարերի ստեղծում։</p>
+<button onclick="openTool('https://quizgecko.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="Question AI">
+<div class="icon">📖</div>
+<h3>Question AI</h3>
+<p>Ավտոմատ հարցեր և պատասխաններ ուսման համար։</p>
+<button onclick="openTool('https://questionai.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="Quizlet">
+<div class="icon">🎓</div>
+<h3>Quizlet AI</h3>
+<p>AI ֆլեշքարտեր և ուսումնական հարցեր։</p>
+<button onclick="openTool('https://quizlet.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="Magic School AI">
+<div class="icon">🏫</div>
+<h3>Magic School AI</h3>
+<p>Ուսուցիչների համար AI հարցաշարերի ստեղծում։</p>
+<button onclick="openTool('https://www.magicschool.ai')">Բացել</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===== VIDEO & ANIMATION ===== -->
+
+<div class="category">
+
+<h2>🎬 Տեքստից Վիդեո և Անիմացիա</h2>
+
+<div class="grid">
+
+<div class="card" data-name="Sora">
+<div class="icon">🎥</div>
+<h3>Sora</h3>
+<p>Տեքստից ռեալիստիկ վիդեոների ստեղծում։</p>
+<button onclick="openTool('https://openai.com/sora')">Բացել</button>
+</div>
+
+<div class="card" data-name="Runway">
+<div class="icon">📹</div>
+<h3>Runway ML</h3>
+<p>AI վիդեո գեներացիա և մոնտաժ։</p>
+<button onclick="openTool('https://runwayml.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="Pika Labs">
+<div class="icon">⚡</div>
+<h3>Pika Labs</h3>
+<p>Կարճ AI անիմացիաների արագ ստեղծում։</p>
+<button onclick="openTool('https://pika.art')">Բացել</button>
+</div>
+
+<div class="card" data-name="Kling AI">
+<div class="icon">🌌</div>
+<h3>Kling AI</h3>
+<p>Բարձրորակ AI անիմացիաներ և վիդեոներ։</p>
+<button onclick="openTool('https://klingai.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="Synthesia">
+<div class="icon">🧑‍🏫</div>
+<h3>Synthesia</h3>
+<p>AI ավատարներով պրեզենտացիոն վիդեոներ։</p>
+<button onclick="openTool('https://www.synthesia.io')">Բացել</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===== IMAGES ===== -->
+
+<div class="category">
+
+<h2>🎨 AI Նկարների Ստեղծում</h2>
+
+<div class="grid">
+
+<div class="card" data-name="DALL E">
+<div class="icon">🖼️</div>
+<h3>DALL·E</h3>
+<p>Տեքստից բարձրորակ նկարների ստեղծում։</p>
+<button onclick="openTool('https://www.bing.com/images/create')">Բացել</button>
+</div>
+
+<div class="card" data-name="Midjourney">
+<div class="icon">🌠</div>
+<h3>Midjourney</h3>
+<p>Պրոֆեսիոնալ AI արվեստ և պատկերներ։</p>
+<button onclick="openTool('https://www.midjourney.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="Leonardo">
+<div class="icon">🎭</div>
+<h3>Leonardo AI</h3>
+<p>Դիզայնի և խաղերի պատկերների ստեղծում։</p>
+<button onclick="openTool('https://leonardo.ai')">Բացել</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===== CODING ===== -->
+
+<div class="category">
+
+<h2>💻 Ծրագրավորում և Կոդ</h2>
+
+<div class="grid">
+
+<div class="card" data-name="Github Copilot">
+<div class="icon">👨‍💻</div>
+<h3>GitHub Copilot</h3>
+<p>AI օգնական ծրագրավորողների համար։</p>
+<button onclick="openTool('https://github.com/features/copilot')">Բացել</button>
+</div>
+
+<div class="card" data-name="Replit AI">
+<div class="icon">🛠️</div>
+<h3>Replit AI</h3>
+<p>Օնլայն ծրագրավորում AI աջակցությամբ։</p>
+<button onclick="openTool('https://replit.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="Codeium">
+<div class="icon">💡</div>
+<h3>Codeium</h3>
+<p>Խելացի AI կոդի գեներացիա։</p>
+<button onclick="openTool('https://codeium.com')">Բացել</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===== MUSIC ===== -->
+
+<div class="category">
+
+<h2>🎵 AI Երաժշտություն և Ձայն</h2>
+
+<div class="grid">
+
+<div class="card" data-name="Suno">
+<div class="icon">🎶</div>
+<h3>Suno AI</h3>
+<p>AI երգերի և երաժշտության ստեղծում։</p>
+<button onclick="openTool('https://suno.com')">Բացել</button>
+</div>
+
+<div class="card" data-name="ElevenLabs">
+<div class="icon">🎙️</div>
+<h3>ElevenLabs</h3>
+<p>Իրական AI ձայների գեներացիա։</p>
+<button onclick="openTool('https://elevenlabs.io')">Բացել</button>
+</div>
+
+</div>
+
 </div>
 
 </section>
 
 <footer>
-    Դպրոցական նախագիծ • AI Tools Hub
+
+✨ AI Tools Hub Ultimate • Դպրոցական նախագիծ • 2026 ✨
+
 </footer>
 
 <script>
-function openTool(url) {
-    window.open(url, "_blank");
+
+function openTool(url){
+    window.open(url,'_blank');
 }
 
-// Search / Filter function
-function filterTools() {
-    let input = document.getElementById('searchBox').value.toLowerCase();
-    let cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        let name = card.getAttribute('data-name').toLowerCase();
-        if(name.includes(input)) {
-            card.style.display = '';
-        } else {
-            card.style.display = 'none';
+function filterTools(){
+
+    let input=document.getElementById('searchBox').value.toLowerCase();
+
+    let cards=document.querySelectorAll('.card');
+
+    cards.forEach(card=>{
+
+        let name=card.getAttribute('data-name').toLowerCase();
+
+        if(name.includes(input)){
+            card.style.display='block';
         }
+        else{
+            card.style.display='none';
+        }
+
     });
+
 }
+
 </script>
 
 </body>
